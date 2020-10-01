@@ -21,13 +21,15 @@ module.exports = {
 		else {
 			console.error('enter correct action')
 			rl.close();
+			return
 		}
 		if (isNaN(shift)){
 			console.error('enter correct shift')
 			rl.close();
+			return
 		}
 		if (output && !fs.existsSync(output)){
-			console.error('введите корректный путь к файлу выходных данных');
+			console.error('enter correct input file path');
 			rl.close();
 			return
 		}
@@ -39,7 +41,7 @@ module.exports = {
 			if (input) {
 				fs.readFile(input, 'utf-8', (err, file) => {
 					if (!input || err) {
-						console.error('введите корректный путь к файлу входных данных');
+						console.error('enter correct output file path');
 						return
 					}
 					if (output) {
